@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>FiscoPilot AI ELITE</title>
+
+<!-- Lien vers manifest -->
+<link rel="manifest" href="manifest.json">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    font-size:28px;
+    color:#D4AF37;
+}
+
+input{
+    padding:10px;
+    width:90%;
+    font-size:16px;
+    margin-top:10px;
+    border-radius:5px;
+    border:none;
+}
+
+button{
+    background:#D4AF37;
+    color:black;
+    padding:15px;
+    border:none;
+    font-size:18px;
+    margin-top:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#response{
+    margin-top:20px;
+    font-size:18px;
+    color:#ffffff;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>FiscoPilot AI ELITE 🇧🇪</h1>
+
+<input id="question" placeholder="Pose ta question comptable ou fiscale">
+
+<br>
+
+<button onclick="askAI()">Demander à l'IA</button>
+
+<p id="response">Réponse ici</p>
+
+<script>
+function askAI(){
+    let q = document.getElementById("question").value;
+    // Pour l'instant IA simulée
+    document.getElementById("response").innerHTML = "Réponse : " + q;
+}
+
+// Service Worker pour fonctionnement hors ligne
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('sw.js')
+    .then(() => console.log('Service Worker enregistré'))
+    .catch(err => console.log('Erreur Service Worker:', err));
+}
+</script>
+
+</body>
+</html>
